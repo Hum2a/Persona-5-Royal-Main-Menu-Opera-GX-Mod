@@ -1,5 +1,5 @@
 {
-   "description": "Persona 5 Royal main menu–themed Opera GX mod: Royal Days background music, full UI and keyboard sounds, deep red and black GX colours, animated wallpaper, and web modding for a P5-style look across sites. Created by Humza.",
+   "description": "Persona 5 Royal main menu-themed Opera GX mod: Royal Days background music, full UI and keyboard sounds, deep red and black GX colours, animated wallpaper, and web modding for a P5-style look across sites. Created by Humza.",
    "developer": {
       "name": "Humza"
    },
@@ -630,6 +630,6 @@
       },
       "schema_version": 1
    },
-   "name": "Persona 5 Royal — Main Menu",
+   "name": "Persona 5 Royal - Main Menu",
    "version": "1.1.0"
 }
