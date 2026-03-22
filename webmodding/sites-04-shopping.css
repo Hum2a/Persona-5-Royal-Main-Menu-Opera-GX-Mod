@@ -1,0 +1,37 @@
+/* Amazon, eBay, PayPal, Apple */
+
+:root {
+  --p5-red: #e50914;
+}
+
+/* Amazon */
+#navbar-main,
+#nav-belt {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 24%, transparent) !important;
+}
+
+#twotabsearchtextbox {
+  caret-color: env(-opera-gx-accent-color, var(--p5-red)) !important;
+}
+
+/* eBay */
+.gh-header,
+#gh-gb {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 24%, transparent) !important;
+}
+
+/* PayPal */
+header.pp-header,
+div[data-nemo="header"] {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 26%, transparent) !important;
+}
+
+/* Apple */
+.globalnav,
+#globalnav {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 18%, transparent) !important;
+}

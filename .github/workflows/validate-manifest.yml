@@ -1,0 +1,76 @@
+name: Validate mod
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Block files over GitHub size limit (~100 MiB)
+        run: python scripts/check_file_sizes.py --tracked
+
+      - name: Validate manifest.json
+        run: python -m json.tool manifest.json > /dev/null
+
+      - name: Check required files exist
+        run: |
+          set -e
+          test -f manifest.json
+          test -f license.txt
+          test -f icon_512.png
+          test -f wallpaper/first_frame1.png
+          test -f wallpaper/first_frame2.png
+          test -f wallpaper/screen1.mp4
+          test -f wallpaper/screen2.webm
+          test -f music/RoyalDays.mp3
+          test -f sound/click.mp3
+          test -f sound/select.mp3
+          test -f sound/close_tab.mp3
+          test -f sound/feature_switch_off.mp3
+          test -f sound/feature_switch_on.mp3
+          test -f sound/hover.mp3
+          test -f sound/important_click.mp3
+          test -f sound/level_upgrade.mp3
+          test -f sound/limiter_off.mp3
+          test -f sound/limiter_on.mp3
+          test -f sound/switch.mp3
+          test -f sound/new_tab.mp3
+          test -f sound/tab_slash.mp3
+          test -f keyboard/backspace.wav
+          test -f keyboard/enter.wav
+          test -f keyboard/letter_1.wav
+          test -f keyboard/letter_2.wav
+          test -f keyboard/letter_3.wav
+          test -f keyboard/space.wav
+          test -f webmodding/p5-royal-global.css
+          test -f webmodding/sites-01-google-youtube.css
+          test -f webmodding/sites-02-social.css
+          test -f webmodding/sites-03-dev.css
+          test -f webmodding/sites-04-shopping.css
+          test -f webmodding/sites-05-media.css
+          test -f webmodding/sites-06-productivity.css
+          test -f webmodding/sites-07-extended.css
+
+      - name: Verify manifest references mod schema
+        run: |
+          python << 'PY'
+          import json
+          from pathlib import Path
+
+          m = json.loads(Path("manifest.json").read_text(encoding="utf-8"))
+          assert m.get("manifest_version") == 3, "manifest_version must be 3"
+          mod = m.get("mod") or {}
+          assert mod.get("schema_version") == 1, "mod.schema_version must be 1"
+          payload = mod.get("payload") or {}
+          assert "browser_sounds" in payload
+          assert "keyboard_sounds" in payload
+          assert "page_styles" in payload
+          assert "wallpaper" in payload
+          print("manifest structure OK")
+          PY

@@ -1,0 +1,25 @@
+# Normalize line endings for cross-platform clones
+* text=auto
+
+# Text sources
+*.json text eol=lf
+*.css text eol=lf
+*.txt text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+.editorconfig text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf
+
+# Binaries / media (no EOL conversion; diff as binary)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.mp4 binary
+*.webm binary
+*.mp3 binary
+*.wav binary

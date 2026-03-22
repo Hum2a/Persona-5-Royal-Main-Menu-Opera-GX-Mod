@@ -1,0 +1,46 @@
+# Operating system
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# Editors / IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Logs and temp
+*.log
+*.tmp
+*.temp
+.cache/
+
+# Local archives / exports (pack the mod folder yourself when uploading)
+*.zip
+*.rar
+*.7z
+
+# Python (tooling / scripts)
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.Python
+
+# Node (tooling)
+node_modules/
+
+# macOS resource forks
+.AppleDouble
+.LSOverride
+
+# --- Large files (GitHub: regular Git rejects blobs ~> 100 MiB) ---
+# .gitignore cannot match by file size. To block oversized commits locally:
+#   git config core.hooksPath .githooks
+# Park huge sources/exports you never want committed:
+not-for-github/

@@ -1,0 +1,219 @@
+/* Persona 5 Royal — global catch-all (https://*/*). Red / black via GX env() + fallbacks. */
+
+:root {
+  --p5-red: #e50914;
+  --p5-red-hot: #ff2035;
+  --p5-red-deep: #7a060e;
+  --p5-black: #060608;
+  --p5-surface: #0e0e12;
+  --p5-red-mist: rgba(229, 9, 20, 0.1);
+  --p5-red-glow: rgba(229, 9, 20, 0.16);
+  --p5-track: rgba(20, 20, 26, 0.85);
+}
+
+@keyframes p5-scan {
+  0% {
+    opacity: 0.5;
+    transform: translate3d(0, 0, 0) skewY(-0.6deg);
+  }
+  50% {
+    opacity: 0.85;
+    transform: translate3d(0.3%, -0.2%, 0) skewY(0.4deg);
+  }
+  100% {
+    opacity: 0.55;
+    transform: translate3d(-0.2%, 0.15%, 0) skewY(-0.3deg);
+  }
+}
+
+html {
+  position: relative;
+}
+
+/* Atmospheric red-on-black layer (non-interactive, behind content) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 90% 55% at 10% 0%, var(--p5-red-glow), transparent 52%),
+    radial-gradient(ellipse 70% 50% at 95% 100%, var(--p5-red-mist), transparent 48%),
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 14%, transparent),
+      color-mix(in srgb, env(-opera-gx-background-color, var(--p5-black)) 22%, transparent)
+    );
+  animation: p5-scan 18s ease-in-out infinite alternate;
+}
+
+/* Typography & links */
+a:any-link {
+  color: env(-opera-gx-accent-color, var(--p5-red));
+  text-decoration-color: color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 55%, transparent);
+}
+
+a:any-link:hover {
+  color: color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 75%, white);
+  text-decoration-color: env(-opera-gx-accent-color, var(--p5-red));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-shadow: 0 0 1px color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 22%, transparent);
+}
+
+abbr[title] {
+  text-decoration-color: color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 45%, transparent);
+}
+
+mark {
+  background: color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 28%, transparent);
+  color: inherit;
+}
+
+blockquote {
+  border-inline-start: 3px solid color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 55%, transparent);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 22%, transparent);
+  opacity: 0.95;
+}
+
+:focus-visible {
+  outline: 2px solid env(-opera-gx-accent-color, var(--p5-red));
+  outline-offset: 2px;
+}
+
+::selection {
+  background: color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 42%, transparent);
+  color: inherit;
+}
+
+/* Form controls */
+button,
+input,
+select,
+textarea,
+output {
+  accent-color: env(-opera-gx-accent-color, var(--p5-red));
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+textarea,
+select {
+  caret-color: env(-opera-gx-accent-color, var(--p5-red));
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 35%, gray);
+}
+
+fieldset {
+  border-color: color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 22%, transparent);
+}
+
+legend {
+  color: env(-opera-gx-accent-color, var(--p5-red));
+  padding-inline: 0.35em;
+}
+
+/* Tables */
+table {
+  border-color: color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 18%, transparent);
+}
+
+th,
+td {
+  border-color: color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 14%, transparent);
+}
+
+caption {
+  color: color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 65%, white);
+}
+
+/* Interactive disclosure */
+details {
+  border: 1px solid color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 16%, transparent);
+  border-radius: 6px;
+  padding: 0.5em 0.75em;
+}
+
+summary {
+  color: env(-opera-gx-accent-color, var(--p5-red));
+  cursor: pointer;
+}
+
+/* Code-ish */
+code,
+kbd,
+samp {
+  border: 1px solid color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 20%, transparent);
+  border-radius: 4px;
+  padding: 0.08em 0.28em;
+  background: color-mix(in srgb, env(-opera-gx-background-color, var(--p5-surface)) 88%, transparent);
+}
+
+pre {
+  border: 1px solid color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 22%, transparent);
+  border-radius: 6px;
+}
+
+/* Media chrome hints */
+audio::-webkit-media-controls-panel,
+video::-webkit-media-controls-panel {
+  background: color-mix(in srgb, env(-opera-gx-background-color, var(--p5-black)) 92%, transparent);
+}
+
+progress {
+  accent-color: env(-opera-gx-accent-color, var(--p5-red));
+}
+
+meter {
+  accent-color: env(-opera-gx-accent-color, var(--p5-red));
+}
+
+/* Scrollbars (Chromium) */
+* {
+  scrollbar-color: color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 58%, transparent)
+    color-mix(in srgb, env(-opera-gx-background-color, var(--p5-track)) 70%, transparent);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: color-mix(in srgb, env(-opera-gx-background-color, var(--p5-black)) 55%, transparent);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    env(-opera-gx-accent-color, var(--p5-red)),
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 45%, var(--p5-red-deep))
+  );
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: env(-opera-gx-accent-color, var(--p5-red-hot));
+}
+
+/* Dialog / popover where supported */
+dialog::backdrop {
+  background: color-mix(in srgb, black 78%, env(-opera-gx-accent-color, var(--p5-red)) 22%);
+}
+
+dialog {
+  border: 1px solid color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 35%, transparent);
+}

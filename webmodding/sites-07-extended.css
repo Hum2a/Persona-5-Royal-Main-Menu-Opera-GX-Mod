@@ -1,0 +1,107 @@
+/* Extra high-traffic sites — complements global + bundles 01–06 */
+
+:root {
+  --p5-red: #e50914;
+}
+
+/* Bing */
+#sb_form_q,
+.b_searchboxForm {
+  caret-color: env(-opera-gx-accent-color, var(--p5-red)) !important;
+}
+
+header#b_header,
+#b_header {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 22%, transparent) !important;
+}
+
+/* DuckDuckGo */
+.header-wrap,
+.site-header,
+#header_wrapper {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 20%, transparent) !important;
+}
+
+#search_form_input,
+#searchbox_input {
+  caret-color: env(-opera-gx-accent-color, var(--p5-red)) !important;
+}
+
+/* OpenAI / ChatGPT */
+div[data-testid="modal-backdrop"],
+[role="dialog"] {
+  border-color: color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 25%, transparent) !important;
+}
+
+nav[aria-label="Chat history"] {
+  border-inline-end: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 14%, transparent) !important;
+}
+
+/* Anthropic Claude */
+header[class*="sticky"],
+[class*="Navigation"] header {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 18%, transparent) !important;
+}
+
+/* Figma */
+[data-testid="header"] {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 20%, transparent) !important;
+}
+
+/* Zoom */
+#header_container,
+.header-container {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 22%, transparent) !important;
+}
+
+/* Etsy */
+[data-id="header"] {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 20%, transparent) !important;
+}
+
+/* Walmart / Target / Best Buy — generic chrome */
+header[role="banner"] {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 20%, transparent) !important;
+}
+
+/* SoundCloud */
+.header,
+.playableHeader {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 22%, transparent) !important;
+}
+
+/* Imgur */
+.Header-section,
+#topbar {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 24%, transparent) !important;
+}
+
+/* Quora */
+.quora-grey-background,
+.AppHeader {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 18%, transparent) !important;
+}
+
+/* Mastodon */
+.ui-header,
+.column-header {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 22%, transparent) !important;
+}
+
+/* Bluesky (app) */
+[data-testid="homeScreen"] header {
+  border-bottom: 1px solid
+    color-mix(in srgb, env(-opera-gx-accent-color, var(--p5-red)) 16%, transparent) !important;
+}

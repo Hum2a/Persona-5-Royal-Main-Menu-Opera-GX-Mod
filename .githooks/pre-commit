@@ -1,0 +1,14 @@
+#!/bin/sh
+# Enforce max file size before commit (Git cannot ignore by size in .gitignore).
+# Enable once: git config core.hooksPath .githooks
+ROOT=$(git rev-parse --show-toplevel) || exit 1
+cd "$ROOT" || exit 1
+
+if command -v python >/dev/null 2>&1; then
+  exec python scripts/check_file_sizes.py --staged
+elif command -v python3 >/dev/null 2>&1; then
+  exec python3 scripts/check_file_sizes.py --staged
+else
+  echo "pre-commit: Python not found; skipping file-size check (install Python to enforce)." >&2
+  exit 0
+fi
