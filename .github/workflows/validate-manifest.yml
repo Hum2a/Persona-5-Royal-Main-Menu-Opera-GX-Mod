@@ -10,7 +10,7 @@ jobs:
   manifest:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Block files over GitHub size limit (~100 MiB)
         run: python scripts/check_file_sizes.py --tracked
